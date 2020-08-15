@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    mysqlsrv:
+        image: mysql:5.7.31
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: senhasecreta
+            MYSQL_DATABASE: django_rest
+        ports:
+            - "3307:3306"
+        volumes:
+            - db-mysql:/var/lib/mysql
+        networks: 
+            - django-api-network
+networks: 
+    django-api-network:
+        driver: bridge
+
+volumes:
+    db-mysql:

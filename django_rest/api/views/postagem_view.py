@@ -12,7 +12,8 @@ class PostagemList(APIView):
         paginacao = PaginacaoCustomizada()
         postagens = postagem_service.listar_postagens()
         resultado = paginacao.paginate_queryset(postagens, request)
-        serializer = postagem_serializer.PostagemSerializer(resultado, many=True)
+        serializer = postagem_serializer.PostagemSerializer(resultado,context={'request':request},
+                                                            many=True)
         return paginacao.get_paginated_response(serializer.data,)
     
     def post(self, request, format=None):

@@ -1,15 +1,19 @@
 from rest_framework.views import APIView
+from rest_framework.pagination import LimitOffsetPagination
 from ..services import postagem_service
 from .. serializers import postagem_serializer
 from rest_framework.response import Response
 from rest_framework import status
 from ..entidades import postagem
+from ..pagination import PaginacaoCustomizada
 
 class PostagemList(APIView):
     def get(self, request, format=None):
+        paginacao = PaginacaoCustomizada()
         postagens = postagem_service.listar_postagens()
-        serializer = postagem_serializer.PostagemSerializer(postagens, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        resultado = paginacao.paginate_queryset(postagens, request)
+        serializer = postagem_serializer.PostagemSerializer(resultado, many=True)
+        return paginacao.get_paginated_response(serializer.data,)
     
     def post(self, request, format=None):
         serializer = postagem_serializer.PostagemSerializer(data=request.data)

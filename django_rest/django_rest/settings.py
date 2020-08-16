@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'django_rest',
         'USER':'root',
         'PASSWORD':'senhasecreta',
-        'HOST':'localhost',
+        'HOST':'0.0.0.0',
         'PORT': '3307',
     }
 }
@@ -109,7 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 

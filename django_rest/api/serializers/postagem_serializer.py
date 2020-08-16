@@ -5,3 +5,4 @@ class PostagemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Postagem
         fields = ('id', 'titulo', 'descricao', 'url_imagem',)
+    

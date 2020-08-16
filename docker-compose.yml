@@ -1,6 +1,14 @@
 version: '3'
 
 services:
+    django-api:
+        build: .
+        ports:
+            - "8000:8000"
+        depends_on: 
+            - mysqlsrv
+        networks: 
+            - django-api-network
     mysqlsrv:
         image: mysql:5.7.31
         restart: always

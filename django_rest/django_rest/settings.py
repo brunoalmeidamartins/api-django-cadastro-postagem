@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'django_rest',
         'USER':'root',
         'PASSWORD':'senhasecreta',
-        'HOST':'0.0.0.0',
+        'HOST':'localhost',
         'PORT': '3307',
     }
 }

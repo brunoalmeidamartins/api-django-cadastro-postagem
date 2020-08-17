@@ -17,7 +17,7 @@ class PostagemList(APIView):
         return paginacao.get_paginated_response(serializer.data,)
     
     def post(self, request, format=None):
-        serializer = postagem_serializer.PostagemSerializer(data=request.data)
+        serializer = postagem_serializer.PostagemSerializer(data=request.data, context={'request':request})
         if serializer.is_valid():
             titulo = serializer.validated_data['titulo']
             descricao = serializer.validated_data['descricao']

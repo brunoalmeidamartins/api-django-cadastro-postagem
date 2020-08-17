@@ -3,12 +3,12 @@ from rest_framework import serializers
 from ..models import Postagem
 
 class PostagemSerializer(serializers.ModelSerializer):
-    _links = serializers.SerializerMethodField()
+    #links = serializers.SerializerMethodField()
     class Meta:
         model = Postagem
-        fields = ('id', 'titulo', 'descricao', 'url_imagem', '_links',)
-    
-    def get__links(self, obj):
+        fields = ('id', 'titulo', 'descricao', 'url_imagem',)
+    '''
+    def get_links(self, obj):
         request = self.context['request']
         return {
             'self': reverse('postagem-detalhes', kwargs={'id':obj.pk}, request=request),
@@ -16,4 +16,5 @@ class PostagemSerializer(serializers.ModelSerializer):
             'update': reverse('postagem-detalhes', kwargs={'id':obj.pk}, request=request),
             
         }
+    '''
     

@@ -87,6 +87,7 @@ PASSWORD: 123456
 ## Rotas da API
 Utilize o Postman para executar chamadas na API.
 ### Rotas sem autenticação
+```
 [Cadastrar Usuário]: http://IP_SERVER:8000/api/usuarios/
 Método: POST
 Body:
@@ -95,8 +96,10 @@ Body:
 	"email": "",
 	"password": ""
 }
+```
 
-[Login Usuário] = http://IP_SERVER:8000/oauth/token/
+```
+[Login Usuário] : http://IP_SERVER:8000/oauth/token/
 Método: POST
 Body:
 {
@@ -107,14 +110,19 @@ Body:
 	"email":"",
 	"password": ""
 }
+```
+
 ### Rotas autenticadas
 Para utilizar as rotas autenticadas, forneça um token válido - obtido através do [Login Usuário]. Os tokens serão do tipo 'Bearer'.
 
-[Listar Postagens] = http://IP_SERVER:8000/api/postagens/
+```
+[Listar Postagens] : http://IP_SERVER:8000/api/postagens/
 Método: GET
 Headers: "Authorization" "Bearer 'token_valido'"
+```
 
-[Cadastrar Postagens] = http://IP_SERVER:8000/api/postagens/
+```
+[Cadastrar Postagens] : ttp://IP_SERVER:8000/api/postagens/
 Método: POST
 Headers: "Authorization" "Bearer 'token_valido'"
 Body:
@@ -123,12 +131,16 @@ Body:
     "descricao": "",
     "url_imagem": ""
 }
+```
 
-[Listar Postagem ID] = http://IP_SERVER:8000/api/postagens/<int:id>
+```
+[Listar Postagem ID] : http://IP_SERVER:8000/api/postagens/<int:id>
 Método: GET
 Headers: "Authorization" "Bearer 'token_valido'"
+```
 
-[Editar Postagem ID] = http://IP_SERVER:8000/api/postagens/<int:id>
+```
+[Editar Postagem ID] : http://IP_SERVER:8000/api/postagens/<int:id>
 Método: PUT
 Headers: "Authorization" "Bearer 'token_valido'"
 Body:
@@ -137,7 +149,10 @@ Body:
     "descricao": "",
     "url_imagem": ""
 }
+```
 
-[Deletar Postagem ID] = http://IP_SERVER:8000/api/postagens/<int:id>
+```
+[Deletar Postagem ID] : http://IP_SERVER:8000/api/postagens/<int:id>
 Método: DELETE
 Headers: "Authorization" "Bearer 'token_valido'"
+```
